@@ -12,4 +12,4 @@ functions:
         write_timeout: 60s
     annotations:
      com.openfaas.health.http.initialDelay: "20s"
-     topic: simple-topic
+     topic: simple-topic 
