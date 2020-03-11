@@ -1,0 +1,15 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  kafka-figlet:
+    lang: dockerfile
+    handler: ./kafka-connector-faas
+    image: openclojure:latest
+    environment:
+        read_timeout: 60s
+        write_timeout: 60s
+    annotations:
+     com.openfaas.health.http.initialDelay: "20s"
+     topic: simple-topic
