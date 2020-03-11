@@ -3,13 +3,13 @@ provider:
   name: openfaas
   gateway: http://127.0.0.1:8080
 functions:
-  kafka-figlet:
+  kafka-connector-faas:
     lang: dockerfile
-    handler: ./kafka-connector-faas
-    image: openclojure:latest
+    handler: ./function
+    image: kafka-connector-faas:latest
     environment:
         read_timeout: 60s
         write_timeout: 60s
     annotations:
      com.openfaas.health.http.initialDelay: "20s"
-     topic: simple-topic 
+     topic: simple-topic
